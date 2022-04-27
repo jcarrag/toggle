@@ -43,7 +43,8 @@ const App = () => {
             height: 100,
             width: "50%",
             left: 0,
-            backgroundColor: "red",
+            backgroundColor: "white",
+            boxShadow: "0 3px 10px rgb(0 0 0 / 1)",
             opacity: 0.5,
             borderRadius: 50,
           }}
@@ -56,8 +57,8 @@ const App = () => {
             );
           }}
         ></div>
-        <p>Left text</p>
-        <p>Right text</p>
+        <p style={{ color: "white", fontWeight: "bold" }}>Left text</p>
+        <p style={{ color: "white", fontWeight: "bold" }}>Right text</p>
       </div>
     </div>
   );
