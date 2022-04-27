@@ -1,8 +1,8 @@
-.toggle-button[togglePosition='left'] {
+.toggle-button[toggleposition='left'] {
   animation: Toggle-left 1s forwards;
 }
 
-.toggle-button[togglePosition='right'] {
+.toggle-button[toggleposition='right'] {
   animation: Toggle-right 1s forwards;
 }
 
