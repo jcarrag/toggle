@@ -1,11 +1,27 @@
 import React from "react";
 import "./App.css";
 
-function App() {
+const backgroudnColourPairs: Array<[string, string]> = [
+  ["#c45321", "#da9647"],
+  ["#da7304", "#dab046"],
+  ["#da9404", "#d8c445"],
+  ["#02a6c6", "#02b7ad"],
+];
+
+const App = () => {
   // "initial" is used to prevent the toggle-button CSS from matching & running on page load
   const [togglePosition, setTogglePosition] = React.useState<
     "initial" | "left" | "right"
   >(() => "initial");
+
+  const [backgroundColourIndex, setBackgroundColourIndex] = React.useState(
+    () => 0
+  );
+  const incrementColour = () =>
+    setBackgroundColourIndex(
+      (backgroundColourIndex + 1) % backgroudnColourPairs.length
+    );
+  const backgroundColour = backgroudnColourPairs[backgroundColourIndex];
 
   return (
     <div style={{ width: "100vw" }}>
@@ -16,6 +32,7 @@ function App() {
           justifyContent: "space-evenly",
           alignItems: "center",
           height: 100,
+          backgroundImage: `linear-gradient(to top, ${backgroundColour[0]} , ${backgroundColour[1]})`,
         }}
       >
         <div
@@ -30,19 +47,20 @@ function App() {
             opacity: 0.5,
             borderRadius: 50,
           }}
-          onClick={() =>
+          onClick={() => {
+            incrementColour();
             setTogglePosition(
               togglePosition === "left" || togglePosition === "initial"
                 ? "right"
                 : "left"
-            )
-          }
+            );
+          }}
         ></div>
         <p>Left text</p>
         <p>Right text</p>
       </div>
     </div>
   );
-}
+};
 
 export default App;
